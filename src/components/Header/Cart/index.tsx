@@ -1,3 +1,4 @@
+"use client";
 import { cookies } from "next/headers";
 import Bag from "@/components/svg/bag.svg";
 import { Container, Quantity, Texts, Title } from "./styles";
