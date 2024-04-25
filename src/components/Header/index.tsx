@@ -7,6 +7,7 @@ const Header = () => {
       <Logo href="/">
         WeMovies
       </Logo>
+      <Cart />
     </Container>
    );
 }

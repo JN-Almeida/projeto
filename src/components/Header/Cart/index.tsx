@@ -3,9 +3,9 @@ import Bag from "@/components/svg/bag.svg";
 import { Container, Quantity, Texts, Title } from "./styles";
 
 const Cart = () => {
-  const cookieCart = cookies().get("product")?.value;
-  const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
-  const totalItems = cart.reduce((acc, item) => acc + (item.qtd || 1), 0);
+  // const cookieCart = cookies().get("product")?.value;
+  // const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
+  const totalItems = 0;
 
   return (
     <Container href="/checkout">
