@@ -34,6 +34,7 @@ export default function RootLayout({
         <Providers cookieCart={cart}>
           <GlobalStyle />
           <body className={openSans.className}>
+            <Header />
             <Section>{children}</Section>
           </body>
         </Providers>
