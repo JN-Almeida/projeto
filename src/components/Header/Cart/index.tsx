@@ -5,8 +5,10 @@ import { Container, Quantity, Texts, Title } from "./styles";
 const Cart = () => {
   const cookieCart = cookies().get("product")?.value;
   const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
-    console.log(cart)
-  const totalItems = 0;
+  const totalItems = cart.reduce((acc, product) => {
+    const quantity = product.qtd || 1;
+    return acc + product.price * quantity;
+  }, 0);
 
   return (
     <Container href="/checkout">
