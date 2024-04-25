@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import { setCookieCart } from "@/utils/cookies";
 import Cookies from 'js-cookie'
 
+import { productType } from "@/types/product";
 type CartProviderProps = {
   children: ReactNode;
   cookieCart: productType[];

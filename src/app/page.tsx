@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { PageContainer } from "./styles";
 import ProductCard from "@/components/ProductCard";
-import { ProductTitle } from "@/components/ProductCard/styles";
+import { productType } from "@/types/product";
 import { fetchData } from "@/services/fetch";
 
 export default async function Home() {

@@ -19,6 +19,7 @@ import {
   TotalPrice,
 } from "./styles";
 
+import { productType } from "@/types/product";
 export default async function Checkout() {
   const cookieCart = cookies().get("product")?.value;
   const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;

@@ -2,6 +2,7 @@ import { cookies } from "next/headers";
 import Bag from "@/components/svg/bag.svg";
 import { Container, Quantity, Texts, Title } from "./styles";
 
+import { productType } from "@/types/product";
 const Cart = () => {
   const cookieCart = cookies().get("product")?.value;
   const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;

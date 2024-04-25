@@ -6,6 +6,7 @@ import Button from "@/components/Button";
 import { CartContext } from "@/context/cart";
 import { Container, ProductPrice, ProductTitle, QuantOnCart } from "./styles";
 
+import { productType } from "@/types/product";
 const ProductCard = ({ id, title, price, image }: productType) => {
   const { addItemOnCart, cart } = useContext(CartContext);
 

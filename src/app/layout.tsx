@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { Section } from "./styles";
 
+import { productType } from "@/types/product";
 import { cookies } from "next/headers";
 
 const openSans = Open_Sans({
