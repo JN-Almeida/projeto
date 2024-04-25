@@ -7,6 +7,7 @@ export const CheckoutContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 4px;
   width: 100%;
+  margin-bottom: 35px;
 `;
 export const TableGrid = styled.div`
   display: grid;

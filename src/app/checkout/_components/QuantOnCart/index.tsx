@@ -1,15 +1,28 @@
+"use client";
 import Plus from "@/components/svg/plus.svg";
 import Minus from "@/components/svg/minus.svg";
 import { ActionButton, Container, InputQuant } from "./styles";
+import { CartContext } from "@/context/cart";
+import { useContext, useMemo, useState } from "react";
 
-const QuantOnCart = () => {
+const QuantOnCart = ({ id, qtd }: { id: number; qtd: number }) => {
+  const { changeQuantItem } = useContext(CartContext);
+  const [qtdOnCart, setQtdOnCart] = useState(qtd);
+
+  useMemo(() => {
+    changeQuantItem(id, qtdOnCart);
+  }, [qtdOnCart]);
   return (
     <Container>
-      <ActionButton>
+      <ActionButton onClick={() => setQtdOnCart(qtdOnCart - 1)}>
         <Minus />
       </ActionButton>
-      <InputQuant type="number" />
-      <ActionButton>
+      <InputQuant
+        type="number"
+        value={qtdOnCart}
+        onChange={(e) => setQtdOnCart(Number(e.target.value))}
+      />
+      <ActionButton onClick={() => setQtdOnCart(qtdOnCart + 1)}>
         <Plus />
       </ActionButton>
     </Container>

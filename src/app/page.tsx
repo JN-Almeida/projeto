@@ -8,7 +8,6 @@ export default async function Home() {
   const {products} = await fetchData<{products: productType[]}>("movies", {
     method: "GET",
   });
-  console.log(products);
   return (
     <PageContainer>
       {products.map((product) => (

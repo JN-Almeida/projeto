@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { Section } from "./styles";
 
+import { cookies } from "next/headers";
+
 const openSans = Open_Sans({
   weight: ["500", "700"],
   subsets: ["latin"],
@@ -23,10 +25,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieCart = cookies().get('product')?.value
+  const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
+
   return (
     <html lang="pt">
       <StyledComponentsRegistry>
-        <Providers>
+        <Providers cookieCart={cart}>
           <GlobalStyle />
           <body className={openSans.className}>
             <Header />

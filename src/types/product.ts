@@ -3,4 +3,5 @@ type productType = {
   title: string;
   price: number;
   image: string;
+  qtd?: number;
 };

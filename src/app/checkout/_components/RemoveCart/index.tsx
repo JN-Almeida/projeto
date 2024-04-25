@@ -1,9 +1,13 @@
+"use client";
+import { useContext } from "react";
+import { CartContext } from "@/context/cart";
 import { IconTrash } from "@/components/svg";
-import { BiSolidTrashAlt } from "react-icons/bi";
 
-const RemoveCart = () => {
+const RemoveCart = ({ id }: { id: number }) => {
+  const { removeItemOnCart } = useContext(CartContext);
+
   return (
-    <button>
+    <button onClick={() => removeItemOnCart(id)}>
       <IconTrash />
     </button>
   );
