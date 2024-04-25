@@ -6,6 +6,7 @@ import { Section } from "./styles";
 import { cookies } from "next/headers";
 import StyledComponentsRegistry from "@/styles/registry";
 import GlobalStyle from "@/styles/global";
+import Providers from "./providers";
 
 const openSans = Open_Sans({
   weight: ["500", "700"],
@@ -29,10 +30,12 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <StyledComponentsRegistry>
-        <GlobalStyle />
-        <body className={openSans.className}>
-          <Section>{children}</Section>
-        </body>
+        <Providers>
+          <GlobalStyle />
+          <body className={openSans.className}>
+            <Section>{children}</Section>
+          </body>
+        </Providers>
       </StyledComponentsRegistry>
     </html>
   );

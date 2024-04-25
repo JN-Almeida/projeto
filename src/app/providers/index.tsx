@@ -4,10 +4,8 @@ import {theme} from "@/styles/theme";
 
 const Providers = ({
   children,
-  cookieCart,
 }: {
   children: React.ReactNode;
-  cookieCart: any;
 }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
