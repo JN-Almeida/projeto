@@ -8,6 +8,7 @@ import {
 } from "react";
 import { useRouter } from "next/navigation";
 import { setCookieCart } from "@/utils/cookies";
+import Cookies from 'js-cookie'
 
 type CartProviderProps = {
   children: ReactNode;
@@ -55,7 +56,8 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
     }
   }
   useEffect(() => {
-    setCookieCart(cart);
+    Cookies.set("product", JSON.stringify(cart));
+    //setCookieCart(cart);
   }, [cart]);
 
   return (
