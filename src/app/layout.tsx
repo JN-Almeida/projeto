@@ -1,11 +1,6 @@
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import Header from "@/components/Header";
-import Providers from "@/providers";
-import GlobalStyle from "@/styles/global";
-import StyledComponentsRegistry from "@/styles/registry";
-import { productType } from "@/types/product";
 import { Section } from "./styles";
 
 const openSans = Open_Sans({
@@ -26,19 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const cookieCart = cookies().get('product')?.value
-  const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
 
   return (
     <html lang="pt">
-      <StyledComponentsRegistry>
-        <Providers cookieCart={cart}>
-          <GlobalStyle />
           <body className={openSans.className}>
-            <Header />
             <Section>{children}</Section>
           </body>
-        </Providers>
-      </StyledComponentsRegistry>
     </html>
   );
 }
