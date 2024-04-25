@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { Section } from "./styles";
@@ -27,10 +26,11 @@ export default function RootLayout({
 }>) {
   const cookieCart = cookies().get("product")?.value;
 
+  const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
   return (
     <html lang="pt">
       <StyledComponentsRegistry>
-        <Providers>
+        <Providers cookieCart={cart}>
           <GlobalStyle />
           <body className={openSans.className}>
             <Section>{children}</Section>
