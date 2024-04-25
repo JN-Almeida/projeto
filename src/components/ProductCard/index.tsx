@@ -20,7 +20,7 @@ const ProductCard = ({ id, title, price, image }: productType) => {
       <ProductPrice>{priceNumber(price)}</ProductPrice>
       <Button onClick={() => addItemOnCart({ id, title, price, image })}>
         <QuantOnCart>
-          <MdAddShoppingCart size={15} /> {0}
+          <MdAddShoppingCart size={15} /> {quantityInCart}
         </QuantOnCart>
         ADICIONAR AO CARRINHO
       </Button>
