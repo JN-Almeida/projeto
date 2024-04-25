@@ -6,6 +6,7 @@ import { cookies } from "next/headers";
 import StyledComponentsRegistry from "@/styles/registry";
 import GlobalStyle from "@/styles/global";
 import Providers from "@/providers";
+import Header from "@/components/Header";
 
 const openSans = Open_Sans({
   weight: ["500", "700"],
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Providers cookieCart={cart}>
           <GlobalStyle />
           <body className={openSans.className}>
+            <Header />
             <Section>{children}</Section>
           </body>
         </Providers>
