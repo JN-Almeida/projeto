@@ -1,14 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import {
   createContext,
   ReactNode,
-  useContext,
   useState,
-  Dispatch,
-  SetStateAction,
-  useMemo,
+  useEffect,
 } from "react";
 import { useRouter } from "next/navigation";
 import { setCookieCart } from "@/utils/cookies";
@@ -58,7 +54,7 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
       setCart((prevCart) => [...prevCart, { ...product, qtd: 1 }]);
     }
   }
-  useMemo(() => {
+  useEffect(() => {
     setCookieCart(cart);
   }, [cart]);
 
