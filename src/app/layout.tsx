@@ -6,7 +6,7 @@ import { Section } from "./styles";
 import { cookies } from "next/headers";
 import StyledComponentsRegistry from "@/styles/registry";
 import GlobalStyle from "@/styles/global";
-import Providers from "./providers";
+import Providers from "@/providers";
 
 const openSans = Open_Sans({
   weight: ["500", "700"],
