@@ -1,6 +1,11 @@
 "use client";
 
-import { createContext, ReactNode, useState, useEffect } from "react";
+import {
+  createContext,
+  ReactNode,
+  useState,
+  useEffect,
+} from "react";
 import { useRouter } from "next/navigation";
 import { setCookieCart } from "@/utils/cookies";
 
@@ -36,6 +41,7 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
     );
 
     if (existingItemInCart !== -1) {
+      // Se o item já estiver no carrinho, incrementar a quantidade
       const updatedCart = [...cart];
       const existingItem = updatedCart[existingItemInCart];
 
@@ -44,6 +50,7 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
         setCart(updatedCart);
       }
     } else {
+      // Se o item não estiver no carrinho, adicionar novo item com quantidade 1
       setCart((prevCart) => [...prevCart, { ...product, qtd: 1 }]);
     }
   }

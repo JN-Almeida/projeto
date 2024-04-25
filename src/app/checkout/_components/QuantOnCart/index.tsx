@@ -7,7 +7,7 @@ import { CartContext } from "@/context/cart";
 
 const QuantOnCart = ({ id, qtd }: { id: number; qtd: number }) => {
   const { changeQuantItem } = useContext(CartContext);
-  const [qtdOnCart, setQtdOnCart] = useState(0);
+  const [qtdOnCart, setQtdOnCart] = useState(qtd);
 
   useEffect(() => {
     changeQuantItem(id, qtdOnCart);

@@ -7,7 +7,7 @@ const RemoveCart = ({ id }: { id: number }) => {
   const { removeItemOnCart } = useContext(CartContext);
 
   return (
-    <button>
+    <button onClick={() => removeItemOnCart(id)}>
       <IconTrash />
     </button>
   );
