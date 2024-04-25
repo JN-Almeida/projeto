@@ -18,7 +18,7 @@ const ProductCard = ({ id, title, price, image }: productType) => {
       <Image src={image} width={147} height={188} alt="img" />
       <ProductTitle>{title}</ProductTitle>
       <ProductPrice>{priceNumber(price)}</ProductPrice>
-      <Button >
+      <Button onClick={() => addItemOnCart({ id, title, price, image })}>
         <QuantOnCart>
           <MdAddShoppingCart size={15} /> {0}
         </QuantOnCart>
