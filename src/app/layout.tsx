@@ -34,7 +34,6 @@ export default function RootLayout({
         <Providers>
           <GlobalStyle />
           <body className={openSans.className}>
-            <Header />
             <Section>{children}</Section>
           </body>
         </Providers>
