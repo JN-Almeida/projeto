@@ -7,10 +7,10 @@ import { useContext } from "react";
 
 const Cart = () => {
   const { addItemOnCart, cart } = useContext(CartContext);
-  const totalItems = cart.reduce((acc: any, product: any) => {
-    const quantity = product.qtd || 1;
-    return acc + product.price * quantity;
-  }, 0);
+  const totalItems = cart.reduce(
+    (acc: any, product: productType) => acc + (product.qtd || 1),
+    0
+  );
 
   return (
     <Container href="/checkout">
