@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PageContainer } from "./styles";
 import ProductCard from "@/components/ProductCard";
 import { productType } from "@/types/product";
