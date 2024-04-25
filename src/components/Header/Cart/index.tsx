@@ -3,8 +3,9 @@ import Bag from "@/components/svg/bag.svg";
 import { Container, Quantity, Texts, Title } from "./styles";
 
 const Cart = () => {
-  // const cookieCart = cookies().get("product")?.value;
-  // const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
+  const cookieCart = cookies().get("product")?.value;
+  const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
+    console.log(cart)
   const totalItems = 0;
 
   return (
