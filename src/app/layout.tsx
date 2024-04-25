@@ -1,12 +1,12 @@
-import Header from "@/components/Header";
-import Providers from "@/providers";
-import GlobalStyle from "@/styles/global";
-import StyledComponentsRegistry from "@/styles/registry";
+
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import { Section } from "./styles";
 
 import { cookies } from "next/headers";
+import StyledComponentsRegistry from "@/styles/registry";
+import GlobalStyle from "@/styles/global";
+import Providers from "./providers";
 
 const openSans = Open_Sans({
   weight: ["500", "700"],
@@ -25,8 +25,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cookieCart = cookies().get('product')?.value
-  const cart: productType[] = cookieCart ? JSON.parse(cookieCart) : null;
+  const cookieCart = cookies().get("product")?.value;
 
   return (
     <html lang="pt">
