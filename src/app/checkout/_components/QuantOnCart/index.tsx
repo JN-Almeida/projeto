@@ -3,15 +3,15 @@ import { useContext, useEffect, useState } from "react";
 import Plus from "@/components/svg/plus.svg";
 import Minus from "@/components/svg/minus.svg";
 import { ActionButton, Container, InputQuant } from "./styles";
-//import { CartContext } from "@/context/cart";
+import { CartContext } from "@/context/cart";
 
 const QuantOnCart = ({ id, qtd }: { id: number; qtd: number }) => {
-  //const { changeQuantItem } = useContext(CartContext);
+  const { changeQuantItem } = useContext(CartContext);
   const [qtdOnCart, setQtdOnCart] = useState(0);
 
-  // useEffect(() => {
-  //   changeQuantItem(id, qtdOnCart);
-  // }, [qtdOnCart]);
+  useEffect(() => {
+    changeQuantItem(id, qtdOnCart);
+  }, [qtdOnCart]);
   return (
     <Container>
       <ActionButton onClick={() => setQtdOnCart(qtdOnCart - 1)}>
