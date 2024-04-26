@@ -1,6 +1,6 @@
 "use client";
 import { ThemeProvider } from "styled-components";
-import { theme } from "@/styles/theme";
+import { defaultTheme } from "@/styles/theme";
 import CartProvider from "@/context/cart";
 
 const Providers = ({
@@ -11,7 +11,7 @@ const Providers = ({
   cookieCart: any;
 }) => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={defaultTheme}>
       <CartProvider cookieCart={cookieCart}>{children}</CartProvider>
     </ThemeProvider>
   );

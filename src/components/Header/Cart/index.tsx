@@ -1,12 +1,11 @@
 "use client";
-import { cookies } from "next/headers";
 import Bag from "@/components/svg/bag.svg";
 import { Container, Quantity, Texts, Title } from "./styles";
 import { CartContext } from "@/context/cart";
 import { useContext } from "react";
 
 const Cart = () => {
-  const { addItemOnCart, cart } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   const totalItems = cart.reduce(
     (acc: any, product: productType) => acc + (product.qtd || 1),
     0

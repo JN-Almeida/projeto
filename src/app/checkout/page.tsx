@@ -14,6 +14,7 @@ import {
   ProductPrice,
   ProductTitle,
   TableGrid,
+  TableGridHeader,
   TotalLabel,
   TotalPrice,
 } from "./styles";
@@ -28,11 +29,11 @@ export default async function Checkout() {
 
   return (
     <CheckoutContainer>
-      <TableGrid>
+      <TableGridHeader>
         <HeaderLabel>PRODUTO</HeaderLabel>
         <HeaderLabel>QTD</HeaderLabel>
         <HeaderLabel>SUBTOTAL</HeaderLabel>
-      </TableGrid>
+      </TableGridHeader>
       {cart?.map((product: productType) => (
         <TableGrid key={product.id}>
           <ProductDesc>

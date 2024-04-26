@@ -12,8 +12,8 @@ export const SuccessContainer = styled.div`
   align-items: center;
   padding: 63px 0;
   gap: 23px;
-  @media screen and (${({ theme }) => theme.endpoints.mobile_lg}) {
-    padding: 63px 15px;
+  @media screen and (max-width: 667px) {
+    padding: 70px 15px;
   }
 `;
 export const Title = styled.h1`
@@ -25,7 +25,7 @@ export const Imgcontainer = styled.div`
   position: relative;
   width: 295px;
   height: 307px;
-  @media screen and (${({ theme }) => theme.endpoints.mobile_lg}) {
+  @media screen and (max-width: 667px) {
     width: 238px;
     height: 248px;
   }

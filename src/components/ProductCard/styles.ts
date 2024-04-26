@@ -10,6 +10,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 414px) {
+    width: 100%;
+  }
 `;
 export const ProductTitle = styled.div`
   font-size: 12px;

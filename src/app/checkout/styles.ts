@@ -15,6 +15,11 @@ export const TableGrid = styled.div`
   align-items: center;
   margin-bottom: 23px;
 `;
+export const TableGridHeader = styled(TableGrid)`
+  @media screen and (max-width: 414px) {
+    display: none;
+  }
+`;
 export const HeaderLabel = styled.p`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.grey};
