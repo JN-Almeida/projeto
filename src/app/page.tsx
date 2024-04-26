@@ -1,11 +1,10 @@
-import Image from "next/image";
-import { PageContainer } from "./styles";
 import ProductCard from "@/components/ProductCard";
-import { ProductTitle } from "@/components/ProductCard/styles";
 import { fetchData } from "@/services/fetch";
+import { productType } from "@/types/product";
+import { PageContainer } from "./styles";
 
 export default async function Home() {
-  const {products} = await fetchData<{products: productType[]}>("movies", {
+  const { products } = await fetchData<{ products: productType[] }>("movies", {
     method: "GET",
   });
   return (

@@ -1,8 +1,9 @@
 "use client";
-import Bag from "@/components/svg/bag.svg";
-import { Container, Quantity, Texts, Title } from "./styles";
-import { CartContext } from "@/context/cart";
 import { useContext } from "react";
+import Bag from "@/components/svg/bag.svg";
+import { CartContext } from "@/context/cart";
+import { productType } from "@/types/product";
+import { Container, Quantity, Texts, Title } from "./styles";
 
 const Cart = () => {
   const { cart } = useContext(CartContext);

@@ -1,6 +1,6 @@
 "use client";
-import Button from "@/components/Button";
 import styled from "styled-components";
+import Button from "@/components/Button";
 
 export const SuccessContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.white};

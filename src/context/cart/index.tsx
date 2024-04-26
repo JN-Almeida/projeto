@@ -1,19 +1,22 @@
 "use client";
-
-import {
-  createContext,
-  ReactNode,
-  useState,
-  useEffect,
-} from "react";
+import { createContext, ReactNode, useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { setCookieCart } from "@/utils/cookies";
+import { productType } from "@/types/product";
 
 type CartProviderProps = {
   children: ReactNode;
   cookieCart: productType[];
 };
-export const CartContext = createContext({} as any);
+type CartContextType = {
+  cart: productType[];
+  removeItemOnCart: (id: number) => void;
+  changeQuantItem: (id: number, qtd: number) => void;
+  addItemOnCart: (product: productType) => void;
+  clearCart: () => void;
+};
+
+export const CartContext = createContext({} as CartContextType);
 
 function CartProvider({ children, cookieCart }: CartProviderProps) {
   const [cart, setCart] = useState<productType[]>(cookieCart || []);
@@ -23,9 +26,10 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   }
-  function clearCart() {
-    setCart([]);
-    router.prefetch("/checkout/success");
+  async function clearCart() {
+    await setCart([]);
+
+    router.push("/checkout/success");
   }
 
   function changeQuantItem(id: number, qtd: number) {
@@ -45,7 +49,6 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
     );
 
     if (existingItemInCart !== -1) {
-      // Se o item já estiver no carrinho, incrementar a quantidade
       const updatedCart = [...cart];
       const existingItem = updatedCart[existingItemInCart];
 
@@ -54,7 +57,6 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
         setCart(updatedCart);
       }
     } else {
-      // Se o item não estiver no carrinho, adicionar novo item com quantidade 1
       setCart((prevCart) => [...prevCart, { ...product, qtd: 1 }]);
     }
   }

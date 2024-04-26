@@ -2,8 +2,8 @@
 import { useContext, useEffect, useState } from "react";
 import Plus from "@/components/svg/plus.svg";
 import Minus from "@/components/svg/minus.svg";
-import { ActionButton, Container, InputQuant } from "./styles";
 import { CartContext } from "@/context/cart";
+import { ActionButton, Container, InputQuant } from "./styles";
 
 const QuantOnCart = ({ id, qtd }: { id: number; qtd: number }) => {
   const { changeQuantItem } = useContext(CartContext);

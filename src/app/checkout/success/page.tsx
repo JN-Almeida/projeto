@@ -7,7 +7,7 @@ export default function Home() {
     <SuccessContainer>
       <Title>Compra realizada com sucesso!</Title>
       <Imgcontainer>
-        <Image src="/assets/buy-success.png" alt="img" fill quality={100} />
+        <Image src="/assets/buy-success.png" alt="img" fill />
       </Imgcontainer>
       <Link href="/">
         <ButtonLink>VOLTAR</ButtonLink>

@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import { Section } from "./styles";
-
 import { cookies } from "next/headers";
+import { Section } from "./styles";
 import StyledComponentsRegistry from "@/styles/registry";
 import GlobalStyle from "@/styles/global";
 import Providers from "@/providers";
 import Header from "@/components/Header";
+import { productType } from "@/types/product";
 
 const openSans = Open_Sans({
   weight: ["500", "700"],

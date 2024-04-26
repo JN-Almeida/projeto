@@ -12,10 +12,11 @@ export const ButtonDefault = styled.button<ButtonProps>`
   width: 100%;
   font-weight: bold;
   color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme, active }) =>
-    active ? theme.colors.action_color : theme.colors.primary_color};
+  background-color: ${({ theme, $active }) =>
+    $active ? theme.colors.action_color : theme.colors.primary_color};
   transition: 0.3s;
   &:hover {
-    background-color: ${({ theme, active }) => active ? theme.colors.action_color : theme.colors.primary_color_dark};
+    background-color: ${({ theme, $active }) =>
+      $active ? theme.colors.action_color : theme.colors.primary_color_dark};
   }
 `;

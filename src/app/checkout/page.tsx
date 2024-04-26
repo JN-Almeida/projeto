@@ -2,15 +2,15 @@ import Image from "next/image";
 import { cookies } from "next/headers";
 import QuantOnCart from "./_components/QuantOnCart";
 import RemoveCart from "./_components/RemoveCart";
-import { priceNumber } from "@/utils/numberFormat";
 import FinishBuy from "./_components/FinishBuy";
+import { priceNumber } from "@/utils/numberFormat";
 import {
   CheckoutContainer,
   CheckoutFooter,
   HeaderLabel,
   Price,
   PriceLabel,
-  ProductDesc,
+  ProductImg,
   ProductPrice,
   ProductTitle,
   TableGrid,
@@ -18,6 +18,7 @@ import {
   TotalLabel,
   TotalPrice,
 } from "./styles";
+import { productType } from "@/types/product";
 
 export default async function Checkout() {
   const cookieCart = cookies().get("product")?.value;
@@ -36,15 +37,16 @@ export default async function Checkout() {
       </TableGridHeader>
       {cart?.map((product: productType) => (
         <TableGrid key={product.id}>
-          <ProductDesc>
-            <Image src={product.image} width={91} height={114} alt="img" />
-            <div>
-              <ProductTitle>{product.title}</ProductTitle>
-              <ProductPrice>{product.price}</ProductPrice>
-            </div>
-          </ProductDesc>
+          <ProductImg>
+            <Image src={product.image} fill alt="img" />
+          </ProductImg>
+          <div>
+            <ProductTitle>{product.title}</ProductTitle>
+            <ProductPrice>{priceNumber(product.price)}</ProductPrice>
+          </div>
           <QuantOnCart id={product.id} qtd={product.qtd || 1} />
           <Price>
+            <HeaderLabel>SUBTOTAL</HeaderLabel>
             <p>{priceNumber(product.price * (product.qtd || 1))}</p>
             <RemoveCart id={product.id} />
           </Price>

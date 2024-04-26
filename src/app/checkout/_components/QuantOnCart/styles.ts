@@ -5,6 +5,9 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 11px;
+  @media screen and (max-width: 667px) {
+    grid-column: 2;
+  }
 `;
 export const InputQuant = styled.input`
   border-radius: 4px;
