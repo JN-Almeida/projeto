@@ -23,6 +23,10 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
     const updatedCart = cart.filter((item) => item.id !== id);
     setCart(updatedCart);
   }
+  function clearCart() {
+    setCart([]);
+    router.prefetch("/checkout/success");
+  }
 
   function changeQuantItem(id: number, qtd: number) {
     const updatedCart = cart.map((item) => {
@@ -65,6 +69,7 @@ function CartProvider({ children, cookieCart }: CartProviderProps) {
         removeItemOnCart,
         changeQuantItem,
         addItemOnCart,
+        clearCart,
       }}
     >
       {children}

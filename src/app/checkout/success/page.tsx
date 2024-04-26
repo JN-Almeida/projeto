@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ButtonLink, Imgcontainer, SuccessContainer, Title } from "./styles";
-import Button from "@/components/Button";
 import Link from "next/link";
 
 export default function Home() {

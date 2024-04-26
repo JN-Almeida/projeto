@@ -1,11 +1,10 @@
-import { Fragment } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { cookies } from "next/headers";
 import QuantOnCart from "./_components/QuantOnCart";
 import RemoveCart from "./_components/RemoveCart";
+import { priceNumber } from "@/utils/numberFormat";
+import FinishBuy from "./_components/FinishBuy";
 import {
-  CheckoutBotton,
   CheckoutContainer,
   CheckoutFooter,
   HeaderLabel,
@@ -18,7 +17,6 @@ import {
   TotalLabel,
   TotalPrice,
 } from "./styles";
-import { priceNumber } from "@/utils/numberFormat";
 
 export default async function Checkout() {
   const cookieCart = cookies().get("product")?.value;
@@ -53,9 +51,7 @@ export default async function Checkout() {
       ))}
 
       <CheckoutFooter>
-        <Link href="/checkout/success">
-          <CheckoutBotton> FINALIZAR PEDIDO</CheckoutBotton>
-        </Link>
+        <FinishBuy />
         <TotalPrice>
           <TotalLabel>TOTAL:</TotalLabel>
           <PriceLabel>{priceNumber(total)}</PriceLabel>
