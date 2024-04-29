@@ -19,6 +19,7 @@ import {
   TotalPrice,
 } from "./styles";
 import { productType } from "@/types/product";
+import Empty from "@/components/Empty";
 
 export default async function Checkout() {
   const cookieCart = cookies().get("product")?.value;
@@ -27,6 +28,10 @@ export default async function Checkout() {
     const quantity = product.qtd || 1;
     return acc + product.price * quantity;
   }, 0);
+
+  if (!cart || cart.length === 0) {
+    return <Empty />;
+  }
 
   return (
     <CheckoutContainer>
